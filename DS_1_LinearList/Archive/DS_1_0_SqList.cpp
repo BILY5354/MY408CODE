@@ -54,10 +54,10 @@ bool ListInsert(SqList &L, int i, int e)
     for (int j = L.length; j >= i; j--) //注意这里判断用 length ∵这是线性表的长度 即“逻辑上”线性表的最后一位
     {
         L.data[j] = L.data[j - 1]; //注意这里为什么是 j 而不是 j+1 ∵这是数组 ∴这里实际是“逻辑上”线性表的 (length + 1)
-        L.data[i - i] = e;         //数组嘛 与线性表差 1
-        L.length++;
-        return true;
     }
+    L.data[i - 1] = e; //数组嘛 与线性表差 1
+    L.length++;
+    return true;
 }
 
 //这里的 e 是引用变量 用于返回删除的元素是啥
@@ -86,9 +86,28 @@ bool getChangeElem(SqList &L, int i, int em);
 void PrintSqList(SqList L);
 void testModule();
 
+void createSqList();
+
 int main()
 {
-    cout << "hello world你是我的神" << endl;
+    createSqList();
+    
     system("pause"); // 防止运行后自动退出，需头文件stdlib.h
     return 0;
+}
+
+//初始化一个 1 2 3 4 5 的顺序表
+void createSqList()
+{
+    SqList L;
+    InitList(L);
+    PrintSqList(L);
+
+//    初试化一些值
+    L.data[0] = 1;
+    L.data[1] = 2;
+    L.data[2] = 3;
+    L.data[3] = 4;
+    L.data[5] = 5;
+    L.length = 5;
 }
