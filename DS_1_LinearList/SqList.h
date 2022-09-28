@@ -1,4 +1,6 @@
 //顺序表 9月9
+#ifndef SqList_H
+#define SqList_H
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -7,12 +9,14 @@ using namespace std;
 
 //线性表的位序从1开始的
 typedef struct
-{ //在 struct 前用 typedef 表示声明新类型名
+{ 
+    //在 struct 前用 typedef 表示声明新类型名
+    //注意 SqList 是新类型名 而不是结构体变量名 以便用此定义新变量
     int data[MaxSize];
     int length;
-} SqList; //注意 SqList 是新类型名 而不是结构体变量名 以便用此定义新变量
+} SqList; 
 
-//函数声明
+//函数声明/*
 void InitList(SqList &L);                        //初始化 指定 L 为线性表的引用 以便修改该地址的具体值 （地址传递方式）
 bool Empty(SqList L);                            //判空
 bool ListInsert(SqList &L, int i, int e);        //插入
@@ -99,3 +103,4 @@ void PrintSqList(SqList L)
     cout<<"打印结束！"<<endl;
 }
 
+#endif

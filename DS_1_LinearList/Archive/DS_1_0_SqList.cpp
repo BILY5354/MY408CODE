@@ -1,5 +1,5 @@
 //顺序表 9月9
-#include <iostream>
+/*#include <iostream>
 #include <stdlib.h>
 using namespace std;
 
@@ -110,4 +110,4 @@ void createSqList()
     L.data[3] = 4;
     L.data[5] = 5;
     L.length = 5;
-}
+}*/
