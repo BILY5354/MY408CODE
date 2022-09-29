@@ -5,8 +5,12 @@
 
 //添加各种题目的头文件
 #include "./Exercise/Exercise1.h"
-
 using namespace std;
+
+#define COMPILE 1 //用于条件编译 需要编译哪一道题目就该对应的值
+
+
+//函数声明
 void addDataToSqList(SqList &L);
 
 int main()
@@ -18,10 +22,14 @@ int main()
     PrintSqList(L);
 
     //START 题目验证程序
+    #if COMPILE == 1
     int temp = 0;
     exercise1(L,temp);
     cout<<"\n被删除的元素为"<<temp<<endl;
     PrintSqList(L);
+    #elif COMPILE == 2
+    PrintSqList(L);
+    #endif
     //END   题目验证程序
 
     system("pause"); // 防止运行后自动退出，需头文件stdlib.h

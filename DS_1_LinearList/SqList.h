@@ -9,12 +9,12 @@ using namespace std;
 
 //线性表的位序从1开始的
 typedef struct
-{ 
+{
     //在 struct 前用 typedef 表示声明新类型名
     //注意 SqList 是新类型名 而不是结构体变量名 以便用此定义新变量
     int data[MaxSize];
     int length;
-} SqList; 
+} SqList;
 
 //函数声明/*
 void InitList(SqList &L);                        //初始化 指定 L 为线性表的引用 以便修改该地址的具体值 （地址传递方式）
@@ -82,25 +82,44 @@ bool ListDelete(SqList &L, int i, int &e)
     L.length--;
     return true;
 }
-int GetElem(SqList L, int i);
-int LocateElem(SqList L, int e);
+
+//按值取值
+int GetElem(SqList L, int i)
+{
+    if (i < 0 || i > L.length)
+    {
+        return -1;
+    }
+    return L.data[i - 1];
+}
+
+//按值去下标
+int LocateElem(SqList L, int e)
+{
+    for (int i = 0; i < L.length; i++)
+    {
+        if (L.data[i] == e)
+            return i + 1;
+    }
+    return -1;
+}
 bool LocateChangeElem(SqList &L, int e, int em);
 bool getChangeElem(SqList &L, int i, int em);
 
 void PrintSqList(SqList L)
 {
     //循环打印
-    if(L.length==0)
+    if (L.length == 0)
     {
-        cout<<"顺序表无值"<<endl;
-        return ;
+        cout << "顺序表无值" << endl;
+        return;
     }
     printf("开始打印顺序表\n");
     for (int i = 0; i < L.length; i++)
     {
         printf("Data[%d]==%d\n", i, L.data[i]);
     }
-    cout<<"打印结束！"<<endl;
+    cout << "打印结束！" << endl;
 }
 
 #endif
