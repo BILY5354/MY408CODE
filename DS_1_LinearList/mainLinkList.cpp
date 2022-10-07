@@ -17,7 +17,7 @@ int main()
 {
    
     LinkList L;
-    L = List_HeadInsert(L);
+    CreateLLByTailInsert(L);
     PrintList(L);
     //START 题目验证程序
     #if COMPILE == 1
@@ -27,6 +27,6 @@ int main()
     #endif
     //END   题目验证程序
 
-    system("pause"); // 防止运行后自动退出，需头文件stdlib.h
+    system("\npause"); // 防止运行后自动退出，需头文件stdlib.h
     return 0;
 }

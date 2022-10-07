@@ -28,7 +28,7 @@ bool ListDelete(LinkList &L, int i, int &e); //按指定位序删除节点并返
 bool DeleteNode(LNode *p);                   //删除指定节点
 void PrintList(LinkList L);
 
-void creat
+void CreateLLByTailInsert(LinkList &L);         //快速建立一个 1 2 3 4 5
 //函数实现
 
 //初始化（带头结点）
@@ -66,7 +66,7 @@ LinkList List_TailInsert(LinkList &L)
 {
     int x;
     L = (LinkList)malloc(sizeof(LNode));
-    LNode *s, *r = L; // r为表尾指针
+    LNode *s, *r = L; // r为表尾指针 其中第一个头结点是空的
     cin >> x;
     while (x != 9999)
     {
@@ -96,4 +96,19 @@ void PrintList(LinkList L)
     }
 }
 
+//快速建立一个 1 2 3 4 5 用尾插法 即正序
+void CreateLLByTailInsert(LinkList &L) 
+{
+    int a[5]={1,2,3,4,5};
+    L = (LinkList)malloc(sizeof(LNode));    
+    LNode *s,*r=L;              //r为表尾指针
+    for (int i = 0; i < 5; i++)
+    {
+        s = (LinkList)malloc(sizeof(LNode));
+        s->data=a[i];
+        r->next=s;              //尾插法 在r的尾部插入嘛
+        r=s;
+    }
+    r->next=nullptr;
+}
 #endif
