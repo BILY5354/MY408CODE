@@ -3,6 +3,7 @@
 - 
 ## vsCode快捷键
     ```
+    格式化代码：shift+alt+f
     快速复制本行：shift+alt+ 下箭头/上箭头
     单行注释：Ctrl + /
     块注释：Alt+Shift+A
