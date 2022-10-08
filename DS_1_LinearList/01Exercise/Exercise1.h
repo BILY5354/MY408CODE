@@ -2,7 +2,7 @@
 #define EXERCISE1_H
 #include <iostream>
 #include <stdlib.h>
-#include "../SqList.h"
+#include "../00Head/SqList.h"
 
 
 /**

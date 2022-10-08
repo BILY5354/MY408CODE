@@ -1,10 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
 //顺序表基本文件
-#include "SqList.h"
+#include "00Head/SqList.h"
 
 //添加各种题目的头文件
-#include "./Exercise/Exercise1.h"
+#include "./01Exercise/Exercise1.h"
 using namespace std;
 
 #define COMPILE 1 //用于条件编译 需要编译哪一道题目就该对应的值

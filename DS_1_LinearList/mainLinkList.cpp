@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 //链表基本文件
-#include "LinkListHead.h"
+#include "00Head/LinkListHead.h"
 
 //添加各种题目的头文件
 

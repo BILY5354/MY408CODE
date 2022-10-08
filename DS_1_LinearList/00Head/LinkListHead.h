@@ -1,4 +1,10 @@
 //带头结点的单链表 9月30
+/* 
+ * 重要信息高亮
+ ! 废弃的不使用方法
+ ? 记录问题
+ TODO：获取数据函数
+ */
 #ifndef LinkListHead
 #define LinkListHead
 #include <iostream>
