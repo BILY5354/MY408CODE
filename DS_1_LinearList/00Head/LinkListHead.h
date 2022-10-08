@@ -13,6 +13,10 @@ using namespace std;
 
 #define MaxSize 50
 
+/* 
+    * 单链表第一个元素下标为 1 如果为 0 的话就是头结点
+ */
+
 //定义结构
 typedef struct LNode
 {
