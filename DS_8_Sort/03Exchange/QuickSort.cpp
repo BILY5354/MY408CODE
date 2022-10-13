@@ -1,31 +1,12 @@
-//交换排序：冒泡插入 快速插入
+//交换排序： 快速插入
 //格式化代码： shift + alt + f
-
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
 
-//冒泡插入
-void BubbleSort(int A[], int n)
-{
-    bool flag;
-    for (int i = 0; i < n - 1; i++)
-    {
-        flag = false;
-        for (int j = n - 1; j > i; j--)
-        {
-            if (A[j - 1] > A[j])
-            {
-                swap(A[j - 1], A[j]);
-                flag = true;
-            }
-        }
-        if (flag == false) //没有发生交换代表原来就是有顺序的
-            return;
-    }
-}
+int Partition(int A[], int low, int high);
 
-//快速排序
+//*快速排序 排序后数据应该是从小到大
 void QuickSort(int A[], int low, int high)
 {
     if (low < high)
@@ -38,15 +19,19 @@ void QuickSort(int A[], int low, int high)
 
 int Partition(int A[], int low, int high)
 {
-    int pivot = A[low];
+    int pivot = A[low];//*当前区最低位设为轴（不一定是数组最低位是本区）
     while (low < high)
     {
         while (low < high && A[high] >= pivot)
-            --high;
-        A[low] = A[high];
+        {//*∵从小到大排∴后面的数肯定是大的 如果现高位>=低位 便不需弄了 
+            --high;     
+        }
+        A[low] = A[high];//*将比轴小的元素移动到左端
         while (low < high && A[low] <= pivot)
+        {//*∵从小到大∴找出下标比轴小值比轴大的元素 放到最高位
             ++low;
-        A[high] = A[low];
+        }
+        A[high] = A[low];//将比轴大的元素
     }
     A[low] = pivot;
     return low;
@@ -62,7 +47,7 @@ int main()
         cout << a[i] << " ";
     }
 
-    BubbleSort(a, 10);
+    QuickSort(a,0,9);
     cout << "\n排序后的数组为：\n";
     for (int i = 0; i < 10; i++)
     {
