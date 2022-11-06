@@ -1,5 +1,5 @@
 //交换排序： 快速插入
-//格式化代码： shift + alt + f
+//格式化代码： shift + alt + f 
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
