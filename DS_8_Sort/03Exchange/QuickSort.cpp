@@ -7,6 +7,8 @@ using namespace std;
 int Partition(int A[], int low, int high);
 
 //*快速排序 排序后数据应该是从小到大
+//*用第一个元素把待排序序列“划分”为两个部分,
+//*左边更小，右边更大，且移动后该元素的位置就是最终位置
 void QuickSort(int A[], int low, int high)
 {
     if (low < high)
