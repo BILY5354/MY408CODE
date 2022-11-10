@@ -19,15 +19,16 @@ typedef struct BitNode
 //*START函数声明
 void InitTree(BiTree &);
 bool InsertNode(BiTree &, int);
-void visit(BiTree T);
+void visit(BiTree);
 
-void PreOder(BiTree T);
-void InOrder(BiTree T);
-void PostOder(BiTree T);
+void PreOder(BiTree);
+void InOrder(BiTree);
+void PostOder(BiTree);
+int CountHei(BiTree);
 //*END函数声明
 
 //初始化
-void InitTree(BiTree &T,int val)
+void InitTree(BiTree &T, int val)
 {
     T = (BiTree)malloc(sizeof(BitNode));
     T->data = {val};
@@ -56,8 +57,8 @@ bool InsertNode(BiTree &T, int val)
             if (p->rchild == nullptr)
             {
                 s = (BitNode *)malloc(sizeof(BitNode));
-                InitTree(s,val);
-                p->rchild=s;
+                InitTree(s, val);
+                p->rchild = s;
                 return true;
             }
             p = p->rchild; //右孩子不为空 继续寻找
@@ -67,8 +68,8 @@ bool InsertNode(BiTree &T, int val)
             if (p->lchild == nullptr)
             {
                 s = (BitNode *)malloc(sizeof(BitNode));
-                InitTree(s,val);
-                p->lchild=s;
+                InitTree(s, val);
+                p->lchild = s;
                 return true;
             }
             p = p->lchild;
@@ -79,7 +80,7 @@ bool InsertNode(BiTree &T, int val)
 //访问函数
 void visit(BiTree T)
 {
-    cout << T->data ;
+    cout << T->data;
 }
 
 //先序遍历
@@ -113,6 +114,18 @@ void PostOder(BiTree T)
         PostOder(T->rchild);
         visit(T);
     }
+}
+
+//!青岛2016 计算二叉树高度
+int CountHei(BiTree T)
+{
+    if (T == nullptr)
+    {
+        return 0;
+    }
+    int lHei = CountHei(T->lchild);
+    int rHei = CountHei(T->rchild);
+    return lHei > rHei ? lHei + 1 : rHei + 1;
 }
 
 #endif
