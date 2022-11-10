@@ -17,8 +17,8 @@ typedef struct BitNode
 //*END定义模块
 
 //*START函数声明
-void InitTree(BiTree root);
-bool InsertNode(BiTree T, int val);
+void InitTree(BiTree &);
+bool InsertNode(BiTree &, int);
 void visit(BiTree T);
 
 void PreOder(BiTree T);
@@ -27,16 +27,16 @@ void PostOder(BiTree T);
 //*END函数声明
 
 //初始化
-void InitTree(BiTree T)
+void InitTree(BiTree &T,int val)
 {
     T = (BiTree)malloc(sizeof(BitNode));
-    T->data = {1};
+    T->data = {val};
     T->lchild = nullptr;
     T->rchild = nullptr;
 }
 
 //插入
-bool InsertNode(BiTree T, int val)
+bool InsertNode(BiTree &T, int val)
 {
     if (T == nullptr)
     { //二叉树一个玩意也没有
@@ -46,15 +46,18 @@ bool InsertNode(BiTree T, int val)
         return true;
     }
 
-    BitNode *p = T;
+    BiTree p = T;
+    BitNode *s;
+
     while (p != nullptr)
     {
         if (val > p->data)
         {
             if (p->rchild == nullptr)
             {
-                p->rchild = (BitNode *)malloc(sizeof(BitNode));
-                p->rchild->data = val;
+                s = (BitNode *)malloc(sizeof(BitNode));
+                InitTree(s,val);
+                p->rchild=s;
                 return true;
             }
             p = p->rchild; //右孩子不为空 继续寻找
@@ -63,8 +66,9 @@ bool InsertNode(BiTree T, int val)
         { // data < p.data
             if (p->lchild == nullptr)
             {
-                p->lchild = (BitNode *)malloc(sizeof(BitNode));
-                p->lchild->data = val;
+                s = (BitNode *)malloc(sizeof(BitNode));
+                InitTree(s,val);
+                p->lchild=s;
                 return true;
             }
             p = p->lchild;
@@ -75,7 +79,7 @@ bool InsertNode(BiTree T, int val)
 //访问函数
 void visit(BiTree T)
 {
-    cout << T->data << endl;
+    cout << T->data ;
 }
 
 //先序遍历

@@ -13,15 +13,17 @@ using namespace std;
 int main()
 {
     BiTree T;
-    InitTree(T);
-    PreOder(T);
+    InitTree(T,1);
 
     for (int i = 0; i < 5; i++)
     {
         InsertNode(T,i);    
     }
+    cout << "先序：";
     PreOder(T);
+    cout << "\n中序：";
     InOrder(T);
+    cout << "\n先序：";
     PostOder(T);
 //START 题目验证程序
 #if COMPILE == 0
