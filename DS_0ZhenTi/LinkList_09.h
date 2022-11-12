@@ -2,7 +2,7 @@
 #define LinkList_09_H
 #include <iostream>
 #include <stdlib.h>
-#include "../00Head/LinkListHead.h"
+#include "../DS_1_LinearList/00Head/LinkListHead.h"
 
 #define SUCCESS 1
 #define FAILURE 0
