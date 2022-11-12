@@ -24,7 +24,10 @@ void visit(BiTree);
 void PreOder(BiTree);
 void InOrder(BiTree);
 void PostOder(BiTree);
-int CountHei(BiTree);
+
+//真题系列
+int CountHei(BiTree);         //计算树的高度
+int CountNonLeafNode(BiTree); //计算非叶结点数量
 //*END函数声明
 
 //初始化
@@ -126,6 +129,25 @@ int CountHei(BiTree T)
     int lHei = CountHei(T->lchild);
     int rHei = CountHei(T->rchild);
     return lHei > rHei ? lHei + 1 : rHei + 1;
+}
+
+//!青岛2017 计算非叶子结点数量
+int CountNonLeafNode(BiTree T)
+{
+    //*一定要先判断二叉树是否为空
+    if (T == nullptr)
+    {
+        return 0;
+    }
+    //左右两个结点都是 nullptr 此结点为叶
+    if (T->lchild == nullptr && T->rchild == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+        return CountNonLeafNode(T->lchild) + CountNonLeafNode(T->rchild) + 1;
+    }
 }
 
 #endif

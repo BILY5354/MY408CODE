@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define COMPILE 1 //用于条件编译
+#define COMPILE 2 //用于条件编译
 
 //函数声明
 /* 二叉树模样
@@ -38,12 +38,14 @@ int main()
 // START 题目验证程序
 #if COMPILE == 0
 
-#elif COMPILE == 1 
+#elif COMPILE == 1
     //青岛2016 二叉树高度
-    cout<<"\n二叉树高度为："<<CountHei(T)<<endl;
- 
+    cout << "\n二叉树高度为：" << CountHei(T) << endl;
+#elif COMPILE == 2
+    //青岛2017 二叉树非叶结点
+    cout << "\n二叉树非叶结点的数量为：" << CountNonLeafNode(T) << endl;
 #endif
-    // END   题目验证程序
+// END   题目验证程序
 
     system("\npause"); // 防止运行后自动退出
     return 0;
