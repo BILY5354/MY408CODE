@@ -3,6 +3,7 @@
 //顺序表基本文件
 
 //添加各种题目的头文件
+#include "ZT_01_AnHui.h"
 
 using namespace std;
 
@@ -15,7 +16,9 @@ int main()
 
 
 //START 题目验证程序
-#if COMPILE == 1
+#if COMPILE == 1 
+    //安徽工业大学11年试题
+    fun_11_1();
     
 #elif COMPILE == 2
     PrintSqList(L);
