@@ -7,12 +7,18 @@
 using namespace std;
 
 #define MaxSize 50
-
+#define COMPILE 1 //用于条件编译 
 
 
 //函数声明
+#if COMPILE == 1    //11年真题
 void fun_11_1();    //判断读入回文 读入用@结束
 
+#elif COMPILE == 2
+#endif
+
+
+#if COMPILE == 1    //11年真题
 void fun_11_1()     //判断读入回文 读入用@结束
 {
     char ch[50];
@@ -31,5 +37,8 @@ void fun_11_1()     //判断读入回文 读入用@结束
     cout<<"恭喜是回文";
     return;
 }
+
+#elif COMPILE == 2
+#endif
 
 #endif
