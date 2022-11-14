@@ -15,9 +15,10 @@ using namespace std;
 //*START 函数声明 & 数据类型声明
 #if COMPILE == 1 // 11年真题
 
-void fun_11_1();         //判断读入回文 读入用@结束
-void fun_11_2(SqList &); //将负数前移
-void fun_11_3(BiTree);   //二叉树最长路径
+void fun_11_1();                                   //判断读入回文 读入用@结束
+void fun_11_2(SqList &);                           //将负数前移
+void fun_11_3(BiTree, int[], int *, int[], int *); //二叉树最长路径
+void printf_11_3(int[], int *);                    //二叉树最长路径显示函数
 
 #elif COMPILE == 2
 #endif
@@ -59,9 +60,40 @@ void fun_11_2(SqList &n) //将负数前移
     }
 }
 
-void fun_11_3(BiTree) //二叉树最长路径
+//*本题思想：采用深度优先并设立两个数组，其一方最长路径，其二放当前最长路径，留意判断到达叶子结点的时机
+// TODO Maxlen CurrentLlen 一开始为 0
+void fun_11_3(BiTree T, int a[], int *Maxlen, int b[], int *CurrentLlen) //二叉树最长路径
 {
-    
+    int j;
+    if (T == nullptr)
+    {
+        if (*CurrentLlen > *Maxlen) 
+        {
+            //当前路径为最长路径
+            for (j = 0; j < *CurrentLlen; j++)
+            {
+                a[j] = b[j];
+            }
+            *Maxlen = *CurrentLlen;
+        }
+    }
+    else
+    {
+        b[(*CurrentLlen)++] = T->data;  //*要加括号 取值再自增
+        fun_11_3(T->lchild, a, &*Maxlen, b, &*CurrentLlen); // Maxlen是指针 *Maxlen是拿值 &*Maxlen是拿指针的地址
+        fun_11_3(T->rchild, a, &*Maxlen, b, &*CurrentLlen);
+        --(*CurrentLlen); //访问了左右孩子后，返回到父结点，所以路径长度减1
+    }
+}
+
+void printf_11_3(int a[], int *Maxlen)
+{
+    int j;
+    cout << "路径长度是：" << *Maxlen << "\t最长的一条路径是：";
+    for (j = 0; j < *Maxlen; j++)
+    {
+        cout << a[j] << "\t";
+    }
 }
 
 #elif COMPILE == 2
