@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define COMPILE 2 //用于条件编译
+#define MAINCOMPILE 1 //用于条件编译
 
 //函数声明
 void addDataToSqList(SqList &);
@@ -17,7 +17,7 @@ int main()
 {
 
 // START 题目验证程序
-#if COMPILE == 1
+#if MAINCOMPILE == 1
     //安徽工业大学11年试题
     SqList n;
     addDataToSqList(n);
@@ -44,8 +44,8 @@ int main()
     fun_11_3(T, a, Maxlen, b, CurrentLen);
     printf_11_3(a, Maxlen);
 
-#elif COMPILE == 2
-    PrintSqList(L);
+#elif MAINCOMPILE == 2
+    
 #endif
     // END   题目验证程序
 

@@ -4,11 +4,9 @@
 #include "00Head/LinkListHead.h"
 
 //添加各种题目的头文件
-#include "02ZhenTi/LinkList_09.h"
-
 using namespace std;
 
-#define COMPILE 11 //用于条件编译 需要编译哪一道题目就该对应的值
+#define COMPILE 0 //用于条件编译 需要编译哪一道题目就该对应的值
 
 //函数声明
 
