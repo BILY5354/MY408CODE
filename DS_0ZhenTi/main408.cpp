@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#define MAINCOMPILE LL12 //用于条件编译
+#define MAINCOMPILE 2 //用于条件编译
 using namespace std;
 //顺序表基本文件
 
@@ -32,7 +32,8 @@ int main()
     PrintList(p);
 
 #elif MAINCOMPILE == 2 //线性表12年真题
-
+    int a[5]={0,1,2,3,4};
+    cout<<a[5];
 #endif
     // END   题目验证程序
 
