@@ -14,6 +14,7 @@ using namespace std;
  !而是不是随便给两个链表来判断是否存在公共后缀
  *∴如果是第一种思路：直接从头结点开始即可 判断地址是否相同
  !而错误的思路是从尾部开始 一一判断值是否相同
+ !本题模拟不了
  */
 
 //结构定义
@@ -24,34 +25,6 @@ typedef struct Node
 } SNode;  //指针变量 LinkList 指向 LNode 类型的数据
 
 //函数声明/*
-
-void CreatL1(char c[], SNode *(&head))
-{
-    head = (SNode *)malloc(sizeof(Node));
-    SNode *s, *r = head; // r为尾指针
-    for (int i = 0; i < 7; i++)
-    {
-        s = (SNode *)malloc(sizeof(Node));
-        s->data = c[i];
-        r->next = s;
-        r = s;
-    }
-    r->next = nullptr;
-}
-
-void CreatL2(char c[], SNode *(&head))
-{
-    head = (SNode *)malloc(sizeof(Node));
-    SNode *s, *r = head; // r为尾指针
-    for (int i = 0; i < 5; i++)
-    {
-        s = (SNode *)malloc(sizeof(Node));
-        s->data = c[i];
-        r->next = s;
-        r = s;
-    }
-    r->next = nullptr;
-}
 
 
 int listLen(SNode *head)
@@ -87,7 +60,36 @@ SNode *find_addr(SNode *str1, SNode *str2)
     return p->next;
 }
 
-void PrintList(SNode *L)
+
+/* void CreatL1(char c[], SNode *(&head))
+{
+    head = (SNode *)malloc(sizeof(Node));
+    SNode *s, *r = head; // r为尾指针
+    for (int i = 0; i < 7; i++)
+    {
+        s = (SNode *)malloc(sizeof(Node));
+        s->data = c[i];
+        r->next = s;
+        r = s;
+    }
+    r->next = nullptr;
+}
+
+void CreatL2(char c[], SNode *(&head))
+{
+    head = (SNode *)malloc(sizeof(Node));
+    SNode *s, *r = head; // r为尾指针
+    for (int i = 0; i < 5; i++)
+    {
+        s = (SNode *)malloc(sizeof(Node));
+        s->data = c[i];
+        r->next = s;
+        r = s;
+    }
+    r->next = nullptr;
+} */
+
+/* void PrintList(SNode *L)
 {
     //循环打印整个链表
     SNode *p = L->next; //扫描指针
@@ -100,6 +102,6 @@ void PrintList(SNode *L)
         p = p->next;
         j++;
     }
-}
+} */
 
 #endif

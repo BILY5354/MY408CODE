@@ -10,7 +10,7 @@
 using namespace std;
 
 #define MaxSize 50
-#define COMPILE 2 //用于条件编译
+#define COMPILE 3 //用于条件编译
 
 //*START 函数声明 & 数据类型声明
 #if COMPILE == 1 // 11年真题
@@ -25,9 +25,14 @@ void printf_11_3(int[], int *);                    //二叉树最长路径显示
 int CountHeight(BiTree); //计算二叉树层高
 int sift(SqList *, int); //给定关键字序列 k1 kn-1 并调整为堆
 
+#elif COMPILE == 3 // 13年
+
+int fun13_2(BiTree); //判断是否为二叉排序树
+
 #endif
 //*END 函数声明 & 数据类型声明
 
+//*START 敲代码
 #if COMPILE == 1 // 11年真题
 
 void fun_11_1() //判断读入回文 读入用@结束
@@ -128,6 +133,32 @@ int sift(SqList *s, int x) //给定关键字序列 k1 kn-1 并调整为堆
     s->data[j] = s->data[0];
 }
 
+#elif COMPILE == 3 // 13年
+
+int preVal = -9999; //全局变量用于保存中序前驱的值
+
+int fun13_2(BiTree T) //判断是否为二叉排序树
+{
+    //如果树为排序树 那么中序肯定为递增序列 ∴只要前一个值比后一个值小 便是二叉排序树
+    int b1, b2;
+    if (T == nullptr)
+    {
+        return 1111; //排序树
+    }
+    else
+    {
+        b1 = fun13_2(T->lchild); //判断左子树是否为二叉排序树
+        if (b1 == 0 || preVal >= T->data)
+        {
+            return -1111; //不是排序树
+        }
+        preVal = T->data;        //*保存当前结点用于下次比较 ∴全局变量
+        b2 = fun13_2(T->rchild); //判断右子树
+        return b2;
+    }
+}
+
 #endif
+//*END 敲代码
 
 #endif

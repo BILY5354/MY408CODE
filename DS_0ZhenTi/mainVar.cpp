@@ -8,10 +8,11 @@
 
 using namespace std;
 
-#define MAINCOMPILE 1 //用于条件编译
+#define MAINCOMPILE 3 //用于条件编译
 
 //函数声明
 void addDataToSqList(SqList &);
+//void addDataToBitree(BiTree &);//建立二叉树排序树
 
 int main()
 {
@@ -45,7 +46,9 @@ int main()
     printf_11_3(a, Maxlen);
 
 #elif MAINCOMPILE == 2
+#elif MAINCOMPILE == 3
     
+
 #endif
     // END   题目验证程序
 
@@ -64,6 +67,7 @@ void addDataToSqList(SqList &L)
     L.data[4] = 5;
     L.length = 5;
 }
+
 
 /* 二叉树模样
     3
