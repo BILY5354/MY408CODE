@@ -6,7 +6,6 @@
 #include "string.h" //引用字符串包
 #include "../DS_1_LinearList/00Head/SqList.h"
 #include "../DS_4_TreeAndBinaryTree/00Head/4_1BiTreeLink.h"
-#include "../DS_4_TreeAndBinaryTree/00Head/4_1BiTreeLink.h"
 
 using namespace std;
 
@@ -24,7 +23,7 @@ void printf_11_3(int[], int *);                    //二叉树最长路径显示
 #elif COMPILE == 2 // 12年真题
 
 int CountHeight(BiTree); //计算二叉树层高
-int sift(SqList *,int); //给定关键字序列 k1 kn-1 并调整为堆
+int sift(SqList *, int); //给定关键字序列 k1 kn-1 并调整为堆
 
 #endif
 //*END 函数声明 & 数据类型声明
@@ -101,7 +100,7 @@ void printf_11_3(int a[], int *Maxlen)
     }
 }
 
-#elif COMPILE == 2 //12年真题
+#elif COMPILE == 2 // 12年真题
 
 int CountHeight(BiTree T)
 {
@@ -114,19 +113,19 @@ int CountHeight(BiTree T)
     return lHei > rHei ? lHei + 1 : rHei + 1;
 }
 
-int sift(SqList *s,int x) //给定关键字序列 k1 kn-1 并调整为堆
+int sift(SqList *s, int x) //给定关键字序列 k1 kn-1 并调整为堆
 {
-    int n=s->length;
-    int j=n;
-    int i=j/2;
-    s->data[0]=x;
-    while ((i>=1)&&(s->data[0]>s->data[i]))
+    int n = s->length;
+    int j = n;
+    int i = j / 2;
+    s->data[0] = x;
+    while ((i >= 1) && (s->data[0] > s->data[i]))
     {
-        s->data[j]=s->data[i];
-        j=i;
-        i=i/2;
+        s->data[j] = s->data[i];
+        j = i;
+        i = i / 2;
     }
-    s->data[j]=s->data[0];
+    s->data[j] = s->data[0];
 }
 
 #endif
