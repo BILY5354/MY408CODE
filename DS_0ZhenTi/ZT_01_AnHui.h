@@ -28,7 +28,6 @@ int sift(SqList *, int); //给定关键字序列 k1 kn-1 并调整为堆
 #elif COMPILE == 3 // 13年
 
 int fun13_2(BiTree); //判断是否为二叉排序树
-
 #endif
 //*END 函数声明 & 数据类型声明
 

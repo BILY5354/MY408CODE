@@ -5,8 +5,8 @@
 #include <stdlib.h>
 using namespace std;
 
-//直接插入 王道书的直接插入 是实现 L(2)~L(n)的排序 L(1)为哨兵 其中L从1开始
-//所以对于数组来说 A[0] 就是没有用的 排序排的是 A[1]~A[n-1] 
+//王道书的直接插入实现 L(1)~L(n)的排序 L(0)为哨兵 ∵线性表 L 从 1 开始
+//所以对于数组来说 A[0] temp数据 排序排的是 A[1]~A[n-1] 
 void InsertSort(int A[], int n)
 {
     int i=0, j=0;
@@ -26,7 +26,7 @@ void InsertSort(int A[], int n)
 
 int main()
 {
-    int a[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int a[10] = {-99, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     
     cout<<"排序前 原始数组：\n";
     for (int i = 0; i < 10; i++)
