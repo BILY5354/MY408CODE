@@ -2,12 +2,20 @@
 //格式化代码： shift + alt + f
 
 #include <iostream>
-#include <stdlib.h>
 using namespace std;
-
-int main() 
+ 
+// main() 是程序开始执行的地方
+ 
+void fun(int *arg)
 {
-    cout<<"hello world你是我的神"<<endl;
-    system("pause");    // 防止运行后自动退出，需头文件stdlib.h
-    return 0;
+    cout<<"the value of arg int fun is: "<<*arg<<endl;
 }
+
+int main()
+{
+   int a=3;
+   fun(&a);
+   system("pause"); // 防止运行后自动退出
+   return 0;
+}
+
